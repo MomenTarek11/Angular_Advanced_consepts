@@ -20,17 +20,17 @@ export class ObservableComponent implements OnInit {
   };
   ngOnInit(): void {
     // first way to create observable
-    console.log(this.person.fullName.call(this.person1));
-    const obs$ = new Observable((Subscriber) => {
-      Subscriber.next('in observable');
-    });
-    obs$.subscribe((data) => console.log(data));
+    // console.log(this.person.fullName.call(this.person1));
+    // const obs$ = new Observable((Subscriber) => {
+    //   Subscriber.next('in observable');
+    // });
+    // obs$.subscribe((data) => console.log(data));
     // ######################################################################################
     // second way to make observable
-    const obs2$ = new Observable(function subscribe(subscriber) {
-      subscriber.next('Second way');
-    });
-    obs2$.subscribe(console.log);
+    // const obs2$ = new Observable(function subscribe(subscriber) {
+    //   subscriber.next('Second way');
+    // });
+    // obs2$.subscribe(console.log);
     // ######################################################################################
     // Use the interval in observble
     // interval(1000).subscribe(console.log);

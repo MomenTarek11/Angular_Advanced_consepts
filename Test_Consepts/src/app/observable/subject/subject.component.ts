@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AsyncSubject,
+  BehaviorSubject,
   ConnectableObservable,
   interval,
   multicast,
   of,
   refCount,
+  ReplaySubject,
   Subject,
   Subscription,
   take,
@@ -59,5 +62,29 @@ export class SubjectComponent implements OnInit {
     //   subscription2.unsubscribe();
     // }, 4000);
     // multicasted.connect();
+    // *****************************************************************************
+    // Use the behaviorSubject
+    // const subject = new BehaviorSubject(0);
+    // subject.next(1);
+    // subject.next(2);
+    // subject.next(3);
+    // subject.subscribe((data) => console.log(data));
+    // Take the last value
+    // *****************************************************************************
+    // ReplaySubject
+    // const subject = new ReplaySubject(1);
+    // subject.next(1);
+    // subject.next(2);
+    // subject.next(3);
+    // subject.subscribe((data) => console.log(data));
+    // store the last value for the number written in function as parameter
+    // *****************************************************************************
+    // AsyncSubject
+    // const subject = new AsyncSubject();
+    // subject.next(1);
+    // subject.next(3);
+    // subject.next(2);
+    // subject.subscribe((data) => console.log(data));
+    // subject.complete();
   }
 }
