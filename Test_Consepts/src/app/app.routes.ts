@@ -28,6 +28,13 @@ export const routes: Routes = [
             (m) => m.WritableSignalComponent
           ),
       },
+      {
+        path: 'computed',
+        loadComponent: () =>
+          import('./signals/computed/computed.component').then(
+            (m) => m.ComputedComponent
+          ),
+      },
     ],
   },
 ];

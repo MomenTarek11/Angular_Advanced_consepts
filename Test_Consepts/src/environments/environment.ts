@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/1',
+  apiUrl: 'https://fakestoreapi.com/users',
 };

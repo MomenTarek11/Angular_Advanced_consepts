@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-writable-signal',
@@ -7,14 +8,18 @@ import { UsersService } from '../../services/users.service';
   imports: [],
   templateUrl: './writable-signal.component.html',
   styleUrl: './writable-signal.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WritableSignalComponent implements OnInit {
   users: any[] = [];
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private spinner: NgxSpinnerService
+  ) {}
   ngOnInit(): void {
-    this.usersService.getUsers().subscribe((users) => {
-      console.log(users);
+    this.spinner.show();
+    this.usersService.getUsers().subscribe((users: any) => {
+      this.spinner.hide();
+      this.users = users;
     });
   }
 }
