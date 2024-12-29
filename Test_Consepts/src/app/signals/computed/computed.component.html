@@ -2,13 +2,19 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Search</mat-label>
-      <input matInput type="text" placeholder="Type to search..." />
+      <input
+        matInput
+        type="text"
+        placeholder="Type to search..."
+        [ngModel]="searchText()"
+        (ngModelChange)="Search($event)"
+      />
       <button mat-icon-button matSuffix>
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
 
-    @for( user of users ; track user.id){
+    @for( user of computedUsers() ; track user.id){
     <div class="col-md-4">
       <div class="card p-3 mb-2">
         <div class="d-flex justify-content-between">
