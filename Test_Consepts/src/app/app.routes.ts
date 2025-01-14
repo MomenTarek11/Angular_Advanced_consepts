@@ -37,4 +37,11 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'file',
+    loadComponent: () =>
+      import('./file-upload-download/file-upload-download.component').then(
+        (m) => m.FileUploadDownloadComponent
+      ),
+  },
 ];
